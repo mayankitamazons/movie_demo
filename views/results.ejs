@@ -1,0 +1,40 @@
+<%include partials/header.ejs%>
+<link rel="stylesheet" href="/results.css">
+
+<div class="container">
+    <a class="btn btn-secondary" role="button" href="/">Search Again</a>
+    <h1>Results</h1>
+            <ul>
+                <div class="row">
+                    <%data.Search.forEach(function(movie){
+                        var picture = movie.Poster;
+                    %>
+                            <div class="col-4 movies">
+            				
+            					<li>
+            					<%if(picture =="N/A") { %>
+            						<img src="/img/no_img.jpg">
+            					<% } 
+            					else{ %>
+            					    <img src="<%= movie.Poster %>">
+            				   <% } %>
+            						<p><strong>Movie Title</strong></p>
+            						<p><a target="_blank" href="http://www.imdb.com/title/<%= movie.imdbID %>/"><%= movie.Title %></a></p>
+            						<p><strong>Year Released:</strong></p>
+            						<p><%= movie.Year %></p>
+									<span class="btn btn-primary make_fav" cover_image='<%= movie.Poster %>' movie_name='<%= movie.Title %>'>Make Fav</span>
+            					</li>
+            				
+            			</div>
+                    <% }) %>
+             </div>
+         </ul>
+         <!--option for if there is no picture"-->
+         <a class="btn btn-primary" role="button" href="/">Search Again</a>
+         <a class="btn btn-primary" role="button" href="/favmovielist">Fav List</a>
+ </div>
+
+
+
+
+<%include partials/footer.ejs%>

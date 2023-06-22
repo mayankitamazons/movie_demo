@@ -1,0 +1,33 @@
+<%include partials/header.ejs%>
+<link rel="stylesheet" href="/results.css">
+
+<div class="container">
+    <a class="btn btn-secondary" role="button" href="/">Search Again</a>
+    <h1>Fav List</h1>
+            <ul>
+                <div class="row">
+                    <%data.forEach(function(movie){
+                        
+                    %>
+                            <div class="col-4 movies">
+            				
+            					<li>
+                                    <img src="<%= movie.cover_image %>">
+            						<p><strong>Movie Title</strong></p>
+            						<p><a target="_blank" href="http://www.imdb.com/title/<%= movie.imdbID %>/"><%= movie.movie_name %></a></p>
+            						
+            					</li>
+            				
+            			</div>
+                    <% }) %>
+             </div>
+         </ul>
+         <!--option for if there is no picture"-->
+         <a class="btn btn-primary" role="button" href="/">Search Again</a>
+      
+ </div>
+
+
+
+
+<%include partials/footer.ejs%>

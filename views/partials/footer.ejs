@@ -1,0 +1,29 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      $(document).ready(function () {
+     
+        $(".make_fav").click(function () {
+          var full_url="/makefav?movie_name="+$(this).attr("movie_name")+"&cover_image="+$(this).attr("cover_image");
+          $.ajax({
+            type: "GET",
+            url: full_url,
+            dataType : 'json',
+            success: function(res)
+            {
+              alert(res);
+              var data = JSON.parse(res);
+              alert(data);
+            //  // json = JSON.parse(data);
+            //   console.log(data);
+            }
+        });
+         
+        });
+        });
+
+    </script>
+  </body>
+</html>
